@@ -14,9 +14,9 @@ Array.prototype.myFilter = function (cb) {
 
 let nums = [1, 2, 3, 4, 5, 6];
 
-let geaterThantwo = nums.myFilter((num, i, arr) => {
+let moreThantwo = nums.myFilter((num, i, arr) => {
   if (num > 2) return true;
   else return false;
 });
 
-console.log(geaterThantwo);
+console.log(moreThantwo);
