@@ -43,3 +43,29 @@
 // var counter2 = counter();
 // counter2();
 
+
+
+//map filter ,reduce
+
+let students = [
+    {name:"Rahul",roll:10,marks:80},
+    {name:"Rahul",roll:10,marks:69},
+    {name:"Rahul",roll:10,marks:35},
+    {name:"Rahul",roll:10,marks:55}
+
+]
+//Q :- return total marks for student with marks greater than 60 after added 20 marks have been to those who scored less than 60
+
+const totalMarks = students.map((st)=>{
+    if(st.marks<60){
+        st.marks+=20;
+    }
+    return st;
+}).reduce((acc,curr)=>{
+    if(curr.marks>60){
+        acc+=curr.marks;
+    }
+    return acc;
+},0)
+
+console.log("sum ",totalMarks)
