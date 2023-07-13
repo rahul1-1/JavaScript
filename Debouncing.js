@@ -14,12 +14,10 @@ const getData = () =>{
 
 const debounce = function (fn,d){
     let timer;
-    return function(){
-        let context = this
-       let  args = arguments
+    return function(...args){
         clearTimeout(timer);
         timer = setTimeout(()=>{
-            fn.apply(context,args)
+            fn.apply(this,args)
         },d)
     }
 }
