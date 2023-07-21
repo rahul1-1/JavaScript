@@ -102,3 +102,25 @@
 //           console.log(sum(1,2,3)(4)(5) )//15
 //           console.log(sum(1,2)(3)(4,5) )//15
 //           console.log(sum (1,2,3,4,5)  )//15
+
+//   *************************************************************
+
+//  Q write a curry function that return sum of pervious value
+ 
+const curryFn = () =>{
+    let preSum = 0;
+    return (val = 0) =>{
+        preSum +=val;
+        return preSum;
+    }
+}
+
+const sum = curryFn();
+
+console.log(sum(5)) //5
+console.log(sum(4))  //9
+console.log(sum(6)) //15
+console.log(sum(10)) //25
+console.log(sum()) //25
+console.log(sum(10)) //35
+console.log(sum()) //35
