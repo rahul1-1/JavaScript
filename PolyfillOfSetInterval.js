@@ -21,8 +21,12 @@ window.setIntervalPolyfill = function(callback, interval) {
     requestAnimationFrame(tick);
   };
   
+
+
   // Example usage of setIntervalPolyfill
   setIntervalPolyfill(function() {
     console.log("This message is logged repeatedly using setIntervalPolyfill");
   }, 2000);
   
+
+  //The requestAnimationFrame function schedules a callback to be invoked before the next repaint, and the tick function will continue to be called repeatedly, checking the elapsed time until the specified delay is reached.
