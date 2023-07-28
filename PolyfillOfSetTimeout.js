@@ -20,4 +20,5 @@ window.setTimeoutPolyfill = function(callback, delay) {
   setTimeoutPolyfill(function() {
     console.log("This message is delayed using setTimeoutPolyfill");
   }, 5000);
+
   
