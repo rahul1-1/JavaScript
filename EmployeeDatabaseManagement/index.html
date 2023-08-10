@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Main App Container -->
+    <div id="app">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>Employee Database Management</h1>
+            <button class="createEmployee">Add Employee</button>
+        </header>
+    </div>
+    
+    <!-- Employees Section -->
+    <div class="employees">
+        <!-- Employees List Section -->
+        <div class="employees__names">
+            <span class="employees__names--title">Employee List</span>
+            <div class="employees__names--list"></div>
+        </div>
+        <!-- Single Employee Information Section -->
+        <div class="employee__single">
+            <div class="employee__single--title">Employee Information</div>
+            <div class="employee__single--info"></div>
+        </div>
+    </div>
+
+    <!-- Add Employee Form Modal -->
+    <div class="addEmployee">
+        <!-- Add Employee Form -->
+        <form class="addEmployee__create">
+            <div>
+                <input type="text" name="firstName" class="firstName" placeholder="First Name" required />
+                <input type="text" name="lastName" class="lastName" placeholder="Last Name" required />
+            </div>
+            <input type="text" name="imageUrl" placeholder="Image Url (Optional)" />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="number" name="contactNumber" placeholder="Contact" required />
+            <input type="number" name="salary" placeholder="Salary" required />
+            <input type="text" name="address" placeholder="Address" />
+            <input type="date" name="dob" placeholder="Date of Birth" class="addEmployee__create--dob" required />
+            <input type="submit" value="Submit" class="addEmployee__create--submit" />
+        </form>
+    </div>
+</body>
+<script src="/EmployeeDatabaseManagement/index.js"></script>
+</html>
