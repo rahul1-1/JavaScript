@@ -35,33 +35,27 @@
     // Event listener to handle form submission
     addEmployeeForm.addEventListener("submit", (e) => {
         e.preventDefault();
+
+        const formData = new FormData(addEmployeeForm);
+        const values = [...formData.entries()];
+        let empData = {};
+        values.forEach((val) => {
+            empData[val[0]] = val[1];
+        });
+        empData.age = new Date().getFullYear() - parseInt(empData.dob.slice(0, 4), 10);
+        empData.imageUrl = empData.imageUrl || "https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg";
         if(isEditMode===true)
         {
-           const editedEmp = {}
-           const formData = new FormData(addEmployeeForm);
-           const values = [...formData.entries()];
-      
-           values.forEach((val) => {
-            editedEmp[val[0]] = val[1];
-           });
            // Update the employee's data in the array
-           editedEmp.id = editEmployeeId
-        employees = employees.map(emp => (emp.id === editEmployeeId ? editedEmp : emp));
+           empData.id = editEmployeeId
+        employees = employees.map(emp => (emp.id === editEmployeeId ? empData : emp));
         
         // Reset the mode flag and editEmployeeId
         isEditMode = false;
         editEmployeeId = null;
         }
         else {
-            const formData = new FormData(addEmployeeForm);
-            const values = [...formData.entries()];
-            let empData = {};
-            values.forEach((val) => {
-                empData[val[0]] = val[1];
-            });
             empData.id = employees[employees.length - 1].id + 1;
-            empData.age = new Date().getFullYear() - parseInt(empData.dob.slice(0, 4), 10);
-            empData.imageUrl = empData.imageUrl || "default-image-url";
             employees.push(empData);
         }
             renderEmployees();
@@ -86,8 +80,8 @@
         if (e.target.tagName === "I" && e.target.className ==="employeeDelete") {
             
             // Handle employee deletion
-            employees = employees.filter(emp => emp.id !== Number(e.target.parentNode.id));
-            if (selectedEmployeId === e.target.parentNode.id) {
+            employees = employees.filter(emp =>String( emp.id) !== (e.target.parentNode.id));
+            if (String(selectedEmployeId) === e.target.parentNode.id) {
                 selectedEmployeId = employees[0]?.id || -1;
                 selectedEmployee = employees[0] || {};
                 renderSingleEmployee();
