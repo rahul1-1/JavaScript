@@ -180,7 +180,7 @@
     // let user = {
     //     name: "Rahul Choudhary",
     //     rc1:()=>{
-    //         console.log(this.name) //  this here is pointing to  global object if we uncomment line 140 than output will be "Choudhary"
+    //         console.log(this.name) //  this here is pointing to  global object if we uncomment line 179 than output will be "Choudhary"
     //     },
     //     rc2(){
     //         console.log(this.name)// this here is pointing to user object
