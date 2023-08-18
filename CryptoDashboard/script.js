@@ -2,7 +2,7 @@
 import { fetchApiData, filterData } from './utils.js';
 
 // Wait for the DOM to be fully loaded
-document.addEventListener("DOMContentLoaded", async function() {
+( async function() {
     // Select DOM elements
     const text = document.querySelector(".search"); // Search input
     const cards = document.querySelector(".container__card"); // Card container
@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", async function() {
             results = await fetchApiData();
             let data = results.data
             // Render the initial data
-            console.log(data)
             renderDom(data);
           
         } catch (error) {
@@ -86,4 +85,4 @@ document.addEventListener("DOMContentLoaded", async function() {
     // Set up debounced function for input
     betterFunction = debounce(getData, 300);
     text.addEventListener("keyup", betterFunction);
-});
+})();
