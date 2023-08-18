@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.box__container{
+    margin-top: 5rem;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.box{
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.color__green{
+    background-color: green;
+}
