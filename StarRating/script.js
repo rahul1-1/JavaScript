@@ -2,7 +2,6 @@
 let starContainer = document.querySelector(".star__container");
 let star = document.querySelectorAll(".stars");
 let totalRating = document.querySelector(".total__rating")
-console.log(star)
 
 let preRating = 0;
 starContainer.addEventListener("click" ,function(e){
@@ -29,7 +28,6 @@ starContainer.addEventListener("mouseover" ,function(e){
     {
         star[i].classList.add("star-filled")
     }
-    totalRating.innerHTML=`Total Rating : ${preRating}`
 })
 
 starContainer.addEventListener("mouseleave" ,function(e){

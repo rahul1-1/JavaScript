@@ -11,16 +11,28 @@ document.addEventListener("DOMContentLoaded", async function() {
     // Declare variables
     let betterFunction; // Debounced function
     let results; // Data from the API
-
+    let loading = true;
     // Initialize the app
     async function initializeApp() {
         try {
             // Fetch data from the API
+                
             results = await fetchApiData();
+            let data = results.data
             // Render the initial data
-            renderDom(results);
+            console.log(data)
+            renderDom(data);
+          
         } catch (error) {
             console.error("Error fetching API data:", error);
+        }
+    }
+
+    if(loading === true){
+        for(let i =0 ;i<10 ;i++){
+            const shimmerCard = document.createElement("div");
+            shimmerCard.classList.add("shimmer")
+            cards.append(shimmerCard)
         }
     }
 
@@ -28,20 +40,21 @@ document.addEventListener("DOMContentLoaded", async function() {
     function renderDom(data) {
         cards.innerHTML = ""; // Clear previous cards
         total.innerHTML = `Total Coin : ${data.length}`; // Update total coin count
+        loading = false
 
         // Create and append card elements
         data.forEach(res => {
             const card = document.createElement("div");
             card.classList.add("card");
             card.innerHTML = `
-                <div class="image"> <img class="img" src=${res.image} /> </div>
+                <div class="image"> <img class="img" src=${`https://assets.coincap.io/assets/icons/${res.symbol.toLowerCase()}@2x.png`} /> </div>
                 <div class="card__details">
                     <div class="card__details--row">
                         <span class="name">${res.name} </span>
-                        <span class="price"> ${res.current_price} </span>
+                        <span class="price">$ ${parseFloat(res.priceUsd).toFixed(2)} </span>
                     </div>
                     <div class="card__details--row">
-                        <span class="symbol">${res.symbol}</span><span class="percent ${res.market_cap_change_percentage_24h>0?"percent--green":"percent--red"}">${res.market_cap_change_percentage_24h}%</span>
+                        <span class="symbol">${res.symbol}</span><span class="percent ${res.changePercent24Hr>0?"percent--green":"percent--red"}">${parseFloat(res.changePercent24Hr).toFixed(2)}%</span>
                     </div>
                 </div>
             `;

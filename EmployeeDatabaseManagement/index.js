@@ -35,7 +35,6 @@
     // Event listener to handle form submission
     addEmployeeForm.addEventListener("submit", (e) => {
         e.preventDefault();
-
         const formData = new FormData(addEmployeeForm);
         const values = [...formData.entries()];
         let empData = {};
