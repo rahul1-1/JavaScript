@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nested Comments</title>
+</head>
+<body>
+    <div class="container">
+        <div class="comment-container">
+            <div class="img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgr9hr5v2rX_Ltf3EfpxIkThW4nxBAv2tvhw&usqp=CAU" alt="">
+            </div>
+            <div class="comment-box">
+                <div class="input-text">
+                    <input type="text" placeholder="Add a comment">
+                    <button class="post">post</button>
+                    <button id="show"class="show">show</button>
+                </div>
+            </div>
+            <select id="sort-select">
+                <option value="oldest">Oldest</option>
+                <option value="newest">Newest</option>
+                
+            </select>
+            <div class="all-comments-container">
+                <div class="all-comments comments-wrapper"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
