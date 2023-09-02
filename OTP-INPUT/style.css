@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height:100vh ;
+}
+
+.container > h1{
+    letter-spacing: 5px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+input {
+    
+    border: none;
+    border-bottom: 3px solid black;
+    width: 35px;
+    margin: 10px 10px;
+    outline: none;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-align: center;
+    font-size: 36px;
+
+}
+
+input:focus{
+    border-bottom: 3px solid orange;
+}
+
+input:nth-child(1){
+    cursor: pointer;
+    pointer-events:all;
+}
